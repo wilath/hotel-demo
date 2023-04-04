@@ -1,0 +1,222 @@
+
+#first-info{
+    font-family: 'Cinzel', serif;;
+}
+p{
+    padding: 0;
+    margin: 0;
+}
+.my-filter{
+    margin: 0;
+    padding: 0;
+    filter: hue-rotate(12deg) saturate(143%) contrast(82%);
+    -webkit-filter: hue-rotate(12deg) saturate(143%) contrast(82%);
+    -moz-filter: hue-rotate(12deg) saturate(143%) contrast(82%);
+    
+}
+
+.parallax{
+    position: relative;
+    background-image: url('../../../assets/images/front-view.jpg');
+    border-bottom: 1px solid wheat ;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+button{
+    cursor: pointer;
+    background-color: var(--color-pink);
+    padding: 15px 20px 15px 20px;
+    border:none;
+    margin-top: 50px;
+    color: wheat;
+    border-radius: 2px;
+    
+}
+button:active{
+    opacity: 0.5;
+}
+.parallax2{
+    background-image: url('../../../assets/images/restaurant.jpg');
+    border-bottom: 1px solid wheat ;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid var(--color-pink);
+}
+.parallax3{
+    background-image: url('../../../assets/images/balcony.jpg');
+    border-bottom: 1px solid wheat ;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid var(--color-pink);
+}
+.inside-para{
+    background-image: url('../../../assets/images/background3.png');
+    position: absolute;
+    left:0;
+    background-color: wheat;
+    width:clamp(60%, 40% ,40%);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    -webkit-box-shadow: inset 8px 8px 83px 14px rgba(66, 68, 90, 1);
+-moz-box-shadow: inset 8px 8px 83px 14px rgba(66, 68, 90, 1);
+box-shadow: inset 8px 8px 83px 14px rgba(66, 68, 90, 1);
+}
+
+.head-text{
+    position: relative;
+    top:0;
+    color: wheat;
+    font-family: 'Poiret One', cursive;
+    text-shadow: 3px 1px 1px wheat;
+    font-size: 4rem;
+    text-align: center;
+}
+
+.lower-text{
+    position: relative;
+    color: wheat;
+    font-family: 'Poiret One', cursive;
+    font-size: 2rem;
+}
+.pink{
+    color:var(--color-pink);
+    text-shadow: 0px 1px 1px var(--color-pink);
+    text-align: center;
+    
+}
+.arrow-holder{
+margin-top:3rem;
+margin-right:5rem;
+    
+}
+.arrow{
+    width:1px;
+    height: 1px;
+    border-top: 45px solid wheat;
+    border-bottom: 45px solid rgba(255, 0, 0, 0);
+    border-left: 45px solid rgba(0, 0, 255, 0);
+    border-right: 45px solid rgba(255, 0, 0, 0);
+    position: absolute;
+    transition: all 350ms ease-in; 
+    animation-duration: 2s;
+    animation-name: changeOpacity;
+    animation-iteration-count: infinite;
+}
+.ar2{
+    top: 15px
+}
+@keyframes changeOpacity {
+    0% {
+      opacity: 0;
+    }
+  
+    50% {
+      opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+  }
+
+
+
+@media only screen and  (min-width: 600px){
+
+}
+@media only screen and  (max-width: 600px){
+    .text-clamp{
+        padding-left: 1rem;
+        padding-right: 1rem;
+        font-size: 3rem
+    }
+    .tc2{
+        padding-left: 1rem;
+        padding-right: 1rem;
+        font-size: 1.75rem
+    }
+    .creds p{
+        font-size: 1rem;
+    }
+}
+
+.info{
+    width: 100%;
+    height: 4rem;
+    background-color: var(--color-primary);
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    align-items: center;
+}
+.social{
+    margin-left: 1rem;
+    margin-right: 1rem;
+    display: flex;
+    flex-direction: row;
+}
+.social i {
+ color: var(--color-pink);
+ padding: 10px 5px 10px 5px;
+ font-size: 2rem;
+}
+.social i:hover{
+    cursor: pointer;
+    color: pink
+}
+.creds{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(0.5rem, 1rem, 1.5rem);
+}
+.creds p{
+    display: inline-block;
+    text-transform: uppercase;
+    text-align: center;
+    padding-left: 1rem;
+    color: var(--color-pink);
+    
+}
+.creds p:hover{
+    cursor: pointer;
+    color: pink;
+}
+.reveal2{
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: 2s all ease;
+  }
+.reveal2.active2{
+    transform: translateY(0);
+    opacity: 1;
+  }
+

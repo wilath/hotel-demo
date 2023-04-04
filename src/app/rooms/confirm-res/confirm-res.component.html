@@ -1,0 +1,139 @@
+<div class="confirm-wraper">
+ <div class="work-area">
+    <div class="res-info">
+         <h2>Finalize your stay</h2>
+         <p style="margin-bottom: 15px">Book with confidence: <span class="pink"> You are on the hotel website</span></p>
+      <div class="res-header">
+         <div class="top">
+            <p>Your Reseravtion from: <span class="pink">{{res.startDate |  date:'mediumDate'}}</span> to: <span class="pink">{{res.endDate |  date:'mediumDate'}}</span> </p>
+         </div>
+         <div class="hotel-info">
+               <div class="hotel-info-wrap">
+                  <div class="pull"><p>Address:</p></div>
+                  <div class="push"><p class="pink">1 St. Martin's Place, Island </p></div>
+               </div>
+               
+               <div class="hotel-info-wrap">
+                  <div class="pull"><p>Reception is open:</p></div>
+                  <div class="push"><p class="pink">24 hours</p></div>
+               </div>
+               
+               <div class="hotel-info-wrap">
+                  <div class="pull"><p>Check-in from:</p></div>
+                  <div class="push"><p class="pink">15:00</p></div>
+               </div>
+               
+               <div class="hotel-info-wrap">
+                  <div class="pull"><p>Check-out to:</p></div>
+                  <div class="push"><p class="pink">12:00</p></div>
+               </div>
+               
+               <div class="hotel-info-wrap">
+                  <div class="pull"><p>Spoken languages:</p></div>
+                  <div class="push"><p class="pink">English, French, Polish</p></div>
+               </div>
+               
+               <div class="hotel-info-wrap">
+                  <div class="pull"><p>Contact:</p></div>
+                  <div class="push"><p class="pink">+1 123123123</p></div>
+               </div>          
+         </div>
+         <div class="top">
+            <p>Your Room: <span class="pink">{{room.name}}</span> </p>
+         </div>
+        
+         <div class="room-info-wrap">
+               <div class="hotel-info-wrap">
+                  <div class="pull"><p>Guests:</p></div>
+                  <div class="push"><p class="pink">{{res.guests}}</p></div>
+               </div>
+               
+               <div class="hotel-info-wrap">
+                  <div class="pull"><p>Catering:</p></div>
+                  <div class="push"><p class="pink">{{catering}}</p></div>
+               </div>
+               
+               <div class="hotel-info-wrap">
+                  <div class="pull"><p>Catering cost:</p></div>
+                  <div class="push"><p class="pink">{{cateringCost}}<span style="color:wheat">$</span></p></div>
+               </div>
+               
+               <div class="hotel-info-wrap">
+                  <div class="pull"><p>Room cost:</p></div>
+                  <div class="push"><p class="pink">{{roomCost}}<span style="color:wheat">$</span></p></div>
+               </div>
+               
+               <div class="hotel-info-wrap">
+                  <div class="pull"><p>Total Price:</p></div>
+                  <div class="push"><p class="pink">{{totalPrice}}<span style="color:wheat">$</span></p></div>
+               </div>
+               
+               <div class="hotel-info-wrap">
+                  <div class="pull"><p>Promo Savings:</p></div>
+                  <div class="push"><p class="pink">{{savings}}<span style="color:wheat">$</span></p></div>
+               </div>
+
+               <div class="hotel-info-wrap">
+                  <div class="pull"><p>Final Price:</p></div>
+                  <div class="push"><p class="pink">{{finalPrice}}<span style="color:wheat">$</span></p></div>
+               </div>  
+
+         </div>     
+         <div class="guest-info-wrap">
+            <div class="guest-info">
+               <div class="top"><p>Guest Information</p></div>
+               <form class="form-wrap" >
+                  <label for="email">Email Address:</label>
+                  <input type="email" name="" id="">
+                  <label for="titles">Title:</label>
+                  <div class="radio-group">
+                     <label class="btn-t" (click)="titleFun(0)" for="title"><input type="radio" value="Mrs."><span>Mrs.</span></label>
+                     <label class="btn-t" (click)="titleFun(1)" for="title"><input type="radio" value="Mr."><span>Mr.</span></label>
+                     <label class="btn-t" (click)="titleFun(2)" for="title"><input type="radio" value="Sir"><span>Sir</span></label>
+                     <label class="btn-t"(click)="titleFun(3)" for="title"><input type="radio" value="dr"><span>dr</span></label>
+                  </div>
+                  <label for="surname">Surname:</label>
+                  <input type="text">
+                  <label for="name">Name:</label>
+                  <input type="text">
+                  <label for="phone">Phone number:</label>
+                  <input type="tel">
+               </form>
+            </div>
+            <div class="payment-info">
+               <div class="top"><p>Reseravtion Guarantee</p></div>
+               <div class="top-text">No payments are made online. Your credit card information will be sent to the hotel only to guarantee your reservation. Payment will be made at the hotel.Our reservation system is secure.</div>
+               <form class="form-wrap">
+                  <label for="creidt">Credit Card number:</label>
+                  <input type="text" value="XXXX XXXX XXXX XXXX XXXX">
+                  <label for="owner">Card Owner:</label>
+                  <input type="text" Value="John Doe">
+                  <label for="ExpDate">Expiration Date</label>
+                  <input type="text" value="01.01.2035">
+                  <label for="">CCV</label>
+                  <input type="password" maxlength="3"  >
+                  <div class="visa-box">
+                     <img class="visa" src="https://pci-services-payment.fastbooking.com/images/visa.jpg" alt="">
+                  <img class="visa" src="https://pci-services-payment.fastbooking.com/images/mastercard.jpg" alt="">
+                  <img class="visa" src="https://pci-services-payment.fastbooking.com/images/dinersclub.jpg" alt="">
+                  <img class="visa" src="https://pci-services-payment.fastbooking.com/images/visaelectron.jpg" alt="">
+                  <img class="visa" src="https://pci-services-payment.fastbooking.com/images/jcb.jpg" alt="">
+                  </div>
+                  
+               </form>
+            </div>
+
+            
+         </div>
+         <div class="bottom-button">
+            <div class="buttonABC">Confirm</div>
+         </div>
+      </div>
+        
+      
+    </div>
+
+ </div>
+
+
+</div>

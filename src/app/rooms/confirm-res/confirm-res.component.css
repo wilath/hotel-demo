@@ -1,0 +1,230 @@
+h3{
+    margin: 0;
+    padding: 0;
+}
+p{
+    padding: 0;
+    margin: 0;
+}
+.confirm-wraper{
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(../../../assets/images/background3.png);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: 'Poiret One', cursive;
+    
+}
+.work-area{
+    position: relative;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    height: 100%;
+    background-color: var(--color-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+.room-info-wrap{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.res-info{
+    height: 100%;  
+    padding-left:1rem;
+    padding-right:1rem;
+    color: wheat;
+
+}
+.res-header{   
+    max-width: 100%; 
+    color: wheat;
+    font-size: 1.2rem;
+    border: 1px solid var(--color-secondary);
+    
+}
+.pink{
+    color: var(--color-pink);
+}
+.top{
+    background-color: var(--color-secondary);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+}
+.hotel-info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;   
+    justify-content: flex-start;
+    padding-left:1rem;
+    padding-right:1rem;
+    border-bottom: 1px solid var(--color-secondary);
+    
+}
+.hotel-info-wrap{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 5px 10px;
+    
+   
+}
+.guest-info-wrap{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    
+}
+.guest-info{
+    min-width: 50%;
+    max-width: 100%;
+    
+}
+.pull{
+    min-width: 320px;
+}
+@media only screen and  (max-width: 920px){
+    .hotel-info-wrap{
+        flex-direction: column;
+    }
+    .guest-info-wrap{
+        flex-direction: column;
+    }
+    .guest-info{
+        min-width: 100%
+    }
+    
+}
+
+
+
+.form-wrap{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 10px;
+}
+.radio-group{
+    height: 1.8rem;
+    background-color: var(--color-secondary);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    
+    margin-left:1rem;
+    margin-right: 1rem;
+}
+.radio-group > label {
+    height: 100%;
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    
+}
+.radio-group > label:hover {
+    background-color: var(--color-third);
+}
+.radio-group > span {
+    padding-bottom: 150px;
+    padding-top: 15px;
+}
+input[type="radio"] {
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    appearance: none;
+    /* For iOS < 15 to remove gradient background */
+    background-color: #fff;
+    /* Not removed via appearance */
+    margin: 0;
+  }
+  input[type="password"],
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"]{
+    background-color: var(--color-primary);
+    border: none;
+    border-bottom: 1px solid var(--color-pink);
+    height: 1.5rem;
+    color: wheat;
+    font-size: 1.3rem;
+    
+  }
+  input[type="password"],
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="tel"]:focus{
+    
+    outline: none;
+  }
+  .payment-info{
+    min-width:50%;
+    max-width: 100%;
+    border-left: 1px solid var(--color-secondary);
+}
+.top-text{
+    padding: 1rem;
+}
+.visa-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.visa{
+    width:50px;
+    display: inline-block;
+    opacity: .4;
+    border: 0;
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+.bottom-button{
+    position: relative;
+    height: 2.5rem;
+    width: 100%;
+    background-color: gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.bottom-button::after{
+    content: '';
+    position: absolute;
+    width: 18vw;
+    height: 100%;
+    background-color: var(--color-pink);
+    z-index: 4;
+    transition: all 0.5s ease;
+}
+.bottom-button:hover::after{
+    width: 100%;
+}
+.buttonABC{
+    z-index: 5;
+    position: relative;
+    height: 100%;
+    width: 20vw;
+    background-color: var(--color-pink);
+    text-align: center;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+
+}
+.visa:hover{
+    opacity: 0.7
+}

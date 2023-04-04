@@ -1,0 +1,42 @@
+
+<div class="room-wraper">
+        <img  style="max-width: 100%; height: auto;" src={{room?.imagePath}} alt="">
+        
+    <div class="info-wrap">
+        <h2>{{room?.name}}</h2>
+        <i class="fa-solid fa-bed"></i> {{room?.capacity}}
+        <i class="fa-solid fa-clone"></i> {{room?.area}}m2
+    </div>
+
+    <div class="faces">
+       
+        <p>Room Facilities:</p>
+        <ul>
+            <li *ngFor="let item of facs">
+                {{item}}
+            </li>
+        </ul>
+    </div>
+    <div class="buy">
+        <div class="question-wrap">
+            <div class="question">?</div>
+        <div class="pop">               
+            <p class="text">Catering prices for One person per day</p>
+        </div>
+        </div>
+        
+        <div class="buy-left">
+            <p>per Day: <span class="pink">{{room?.price}}</span>$</p>
+            <p>All-inclusive: <span class="pink">+40</span>$</p> 
+            <p>Only breakfasts: <span class="pink">+15</span>$</p> 
+        </div>
+        <div *ngIf="applied" class="buy-right">
+            <p>start:<span class="pink">{{reservation.startDate |  date:'shortDate'}}</span></p>
+            <p>end: <span class="pink">{{reservation.endDate |  date:'shortDate'}}</span></p>
+            <p>nights: <span class="pink">{{reservation.days}}</span> </p>
+            <p>Total price: <span class="pink">{{totalPrice}}</span>$</p>
+            
+        </div>
+    </div>
+    <button routerLink="/rooms/confirm" [disabled]="!applied" class="select-button" (click)="selectRoom()" >Select</button>
+</div>
