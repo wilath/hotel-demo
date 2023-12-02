@@ -1,7 +1,7 @@
 import { Component, OnInit, Query, QueryList, ViewChildren } from '@angular/core';
-import { Reservation } from '../reservation.model';
+import { Reservation } from '../../shared/reservation.model';
 import { RoomService } from '../room.service';
-import { Room } from '../room.model';
+import { Room } from '../../shared/room.model';
 
 
 @Component({
@@ -32,7 +32,7 @@ export class ConfirmResComponent implements OnInit {
 
 
   ngOnInit(){
-   this.room = this.items.getRooms()[this.items.getSelectedRoom()]
+   //this.room = this.items.getRooms()[this.items.getSelectedRoom()]
    this.res = this.items.getReseravtion();
    this.countAll();
    if(this.finalPrice !== 0){this.local()}
@@ -91,7 +91,7 @@ export class ConfirmResComponent implements OnInit {
   }
   titleFun(n: number){
 
-      let buttons = Array.from(document.getElementsByClassName('btn-t') as HTMLCollectionOf<HTMLElement>)
+      const buttons = Array.from(document.getElementsByClassName('btn-t') as HTMLCollectionOf<HTMLElement>)
       for(let i = 0; i < 4; i++){
         buttons[i].style.backgroundColor = "var(--color-secondary)"
         buttons[n].style.backgroundColor = "var(--color-third)"
@@ -99,7 +99,7 @@ export class ConfirmResComponent implements OnInit {
   }
   
   local(){
-    let resObject = {
+    const resObject = {
       finalPrice: this.finalPrice,
       totalPrice: this.totalPrice,
       savings: this.savings,
@@ -112,10 +112,10 @@ export class ConfirmResComponent implements OnInit {
       endDate: this.res.endDate
       
     }
-    let resData = JSON.stringify(resObject)
+    const resData = JSON.stringify(resObject)
 
 
-    let local = localStorage.setItem('data',resData)
+    const local = localStorage.setItem('data',resData)
   
   }
 }

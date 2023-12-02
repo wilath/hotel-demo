@@ -1,45 +1,64 @@
 <div class="navbar-wraper">
-<ul class="navbar-nav">
+  <ul class="navbar-nav">
     <li class="logo">
-            <p>Ω</p>   
-            <h5 class="link-text">Omega Hotel</h5>
-      </li>
+      <p>Ω</p>
+      <h5 class="link-text">Omega Hotel</h5>
+    </li>
 
-
-  <li class="nav-item">
-    <a 
-      routerLink="/main-page"
-      routerLinkActive="active-class" 
-      class="nav-link">
+    <li class="nav-item">
+      <a
+        routerLink="/main-page"
+        routerLinkActive="active-class"
+        class="nav-link"
+      >
         <i class="fa-solid fa-hotel"></i>
-        <span class="link-text">Home</span></a>
-  </li>
-  <li class="nav-item">
-    <a
-      class="nav-link">
+        <span class="link-text">Home</span></a
+      >
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/galery" routerLinkActive="active-class">
         <i class="fa-solid fa-image"></i>
-        <span class="link-text">Galery</span></a>
-  </li>
-  <li class="nav-item">
-    <a 
-      routerLink="/rooms"
-      routerLinkActive="active-class"
-      class="nav-link">
+        <span class="link-text">Blog</span></a
+      >
+    </li>
+    <li class="nav-item">
+      <a routerLink="/rooms" routerLinkActive="active-class" class="nav-link">
         <i class="fa-solid fa-bed"></i>
-        <span class="link-text">Rooms</span></a>
-  </li>
-  <li class="nav-item">
-    <a style="cursor: pointer;" class="nav-link">
+        <span class="link-text">Rooms</span></a
+      >
+    </li>
+    <li class="nav-item">
+      <a style="cursor: pointer" class="nav-link">
         <i class="fa-solid fa-phone"></i>
-        <span class="link-text">Contact</span></a>
-  </li>
-  <li class="nav-item">
-    <a (click)="theme()" style="cursor: pointer;" class="nav-link">
+        <span class="link-text">Contact</span></a
+      >
+    </li>
+    <ng-container *ngIf="isLoged$ | async">
+      <li class="nav-item">
+        <a
+          style="cursor: pointer"
+          class="nav-link"
+          [routerLink]="
+            (whosLogged$ | async) === 'admin' ? '/admin-panel' : '/user-panel'
+          "
+          routerLinkActive="active-class"
+        >
+          <i class="fa-solid fa-circle-half-stroke"></i>
+          <span class="link-text">
+            {{
+              (whosLogged$ | async) === "admin" ? "Manage" : "My Account"
+            }}</span
+          ></a
+        >
+      </li>
+    </ng-container>
+    <li id="logbut" class="nav-item">
+      <a style="cursor: pointer" class="nav-link" (click)="log()">
         <i class="fa-solid fa-circle-half-stroke"></i>
-        <span class="link-text">Theme</span></a>
-  </li>
-</ul>
+        <span class="link-text">{{
+          (isLoged$ | async) ? "Logout" : "Login"
+        }}</span></a
+      >
+    </li>
+  </ul>
 </div>
-
-
-

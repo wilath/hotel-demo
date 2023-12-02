@@ -1,14 +1,15 @@
 <div class="galery-wraper">
 
 
-    <h3>Our Rooms</h3>
+    <h3>Our Posts</h3>
 <div class="slideshow"> 
+   <div *ngFor="let item of blogList$ | async">
+        {{item.postID}}
+        {{item.author}}
+        {{item.title}}
+    </div>
     
 </div>
-<h3>Restaurant</h3>
-<div class="slideshow"></div>
-<h3>Tourist Attractions</h3>
-<div class="slideshow"></div>
 
 
 

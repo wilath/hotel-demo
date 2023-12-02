@@ -143,6 +143,11 @@ input[type=number]::-webkit-inner-spin-button {
     width:100%;
     text-align: center;
     transition: all 0.3s ease;
+    border: none;
+    background-color: var(--color-secondary);
+    color:  var(--color-pink);
+    font-family: 'Poiret One', cursive;
+    font-weight: 100;
 }
 .pm:active{
     background-color: var(--color-third)
@@ -179,6 +184,7 @@ button[disabled]{
     justify-content: center;
     gap: 50px;
     padding-bottom: 50px;
+    padding-top: 50px;
 }
 .alert{
     position: relative;

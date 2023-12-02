@@ -31,6 +31,7 @@
 
 .link-text{
     display: none;
+    white-space: nowrap;
 }
 .nav-link i {
     min-width: 2rem;
@@ -96,4 +97,7 @@ display: none;
         
         background-color: var(--color-secondary);
     }
+}
+.active-class{
+    background-color: var(--color-secondary);
 }

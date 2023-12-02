@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Room } from './room.model';
+import { Room } from '../shared/room.model';
 
 @Pipe({name: 'sortRooms'})
 export class sortRoomPipe implements PipeTransform {

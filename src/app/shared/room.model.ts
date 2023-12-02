@@ -1,4 +1,5 @@
 export class Room{
+    public id: number;
     public name:string;
     public capacity: number;
     public facilities: Array<string>
@@ -7,7 +8,8 @@ export class Room{
     public price;
 
     
-    constructor(name:string, capacity:number,facilities:Array<string>, imagePath:string, area:number, price:number){
+    constructor(id:number, name:string, capacity:number,facilities:Array<string>, imagePath:string, area:number, price:number){
+        this.id = id
         this.name = name;
         this.capacity = capacity
         this.facilities = facilities

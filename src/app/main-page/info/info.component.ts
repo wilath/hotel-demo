@@ -17,11 +17,11 @@ export class InfoComponent {
 
   
   revealText(){
-    var reveals = document.querySelectorAll(".reveal");
-      for (var i = 0; i < reveals.length; i++) {
-        var windowHeight = window.innerHeight;
-        var elementTop = reveals[i].getBoundingClientRect().top;
-        var elementVisible = 0;
+    const reveals = document.querySelectorAll(".reveal");
+      for (let i = 0; i < reveals.length; i++) {
+        const windowHeight = window.innerHeight;
+        const elementTop = reveals[i].getBoundingClientRect().top;
+        const elementVisible = 0;
         if (elementTop < windowHeight - elementVisible) {
           reveals[i].classList.add("active");
         } else {
@@ -30,8 +30,8 @@ export class InfoComponent {
       }
     }
     reveal2(){
-      var reveals2 = document.querySelectorAll(".reveal2");
-      for (var i = 0; i < reveals2.length; i++) {
+      const reveals2 = document.querySelectorAll(".reveal2");
+      for (let i = 0; i < reveals2.length; i++) {
           reveals2[i].classList.add("active2");
       
       }

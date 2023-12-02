@@ -1,0 +1,25 @@
+<div class="blog">
+    
+    <div class="blog-list">
+        <a class="blog-item" id="new-item" routerLink="new">
+            <div class="custom-filter"></div>
+            <img class="blog-image" src="/assets/images/plus.png" alt="plus">         
+            <h3>Add new Post</h3>
+        </a>
+
+        <div *ngFor="let blog of blogList$ | async " >
+            <a
+                [routerLink]="[blog.postID]"
+                class="blog-item">
+                <div class="custom-filter"></div>
+                <img class="blog-image" [src]="blog.photos" alt="photo">
+            <h3>{{blog.title}}</h3>
+            
+            </a>
+        </div>
+    </div>
+
+    <router-outlet></router-outlet>
+
+
+</div>

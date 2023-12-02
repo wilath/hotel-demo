@@ -17,10 +17,10 @@
                 </div>
                 <div class="pick pick-guests ">
                     <i class="fa-solid fa-person "></i>
-                    <input [(ngModel)]="guestNumber" type="number" class="form-control" ngModel name="guests" required>
+                    <input [(ngModel)]="guestNumber" type="number" class="form-control" ngModel name="guests" required readonly >
                     <div class="add-up">
-                        <div (click)="pGuest()" class="pm" id="up">+</div>
-                        <div (click)="mGuest()" class="pm" id="down">-</div>
+                        <button (click)="pGuest()" class="pm" id="up">+</button>
+                        <button (click)="mGuest()" class="pm" id="down">-</button>
                     </div>
                     
                 </div>
@@ -51,7 +51,7 @@
         </form>
         </div>
         <div class="room-colection">
-            <ng-container  *ngFor="let item of rooms; let i=index" >
+            <ng-container  *ngFor="let item of rooms$ | async; let i=index" >
             <app-room-item *ngIf="item | sortRooms: reservation.guests " [room]="item" [index]="i" >
             
             </app-room-item>

@@ -12,6 +12,9 @@
     --color-secondary: rgb(29, 33, 41);
     --color-third: rgb(109, 122, 150);;
     --color-pink:rgb(240, 95, 95);
+
+    --button-color1: rgb(104, 115, 139);;
+    --button-color2: rgb(56, 62, 75);;
 }
 body{
     margin: 0;
@@ -56,4 +59,28 @@ body::-webkit-scrollbar-thumb{
         margin-bottom: 5rem;
         
     }
+}
+
+.fade-animation {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+  
+.fade-animation.ng-enter,
+.fade-animation.ng-leave {
+    opacity: 1;
+}
+  
+.fade-animation.ng-enter.ng-enter-active,
+.fade-animation.ng-leave {
+    opacity: 0;
+}
+
+.prevent-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+.disable-scroll{
+    overflow: hidden
 }

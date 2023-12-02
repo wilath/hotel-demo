@@ -1,7 +1,11 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Room } from '../room.model';
+import { Room } from '../../shared/room.model';
 import { RoomService } from '../room.service';
 import { sortRoomPipe } from '../sort-rooms.pipe';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { selectAllRooms } from 'src/app/store/selectors/rooms.selector';
+import { AppState } from 'src/app/store/app.reducer';
 
 @Component({
   selector: 'app-rooms-list',
@@ -10,19 +14,23 @@ import { sortRoomPipe } from '../sort-rooms.pipe';
 })
 export class RoomsListComponent implements OnInit {
 
-  constructor(private items: RoomService) { }
- 
-  ngOnInit(){
-    setTimeout(()=>{this.revealText()}, 100)
+  constructor(
+    private items: RoomService,
+    private store: Store<AppState>
+    ) { 
+    this.rooms$ = this.store.select(selectAllRooms)
+    }
     
 
-    this.rooms = this.items.getRooms()
+
+  ngOnInit(){
+    setTimeout(()=>{this.revealText()}, 100)
+    console.log(this.rooms$)
+   
   }
 
-  rooms:Array<Room> = []
-
+  rooms$: Observable<Room[]>;
   guestNumber:number = 1;
-  
   formSubmitted = false;
   reservation = {
     promo: false,
@@ -37,7 +45,6 @@ export class RoomsListComponent implements OnInit {
     if(this.guestNumber === 4){return}
     this.guestNumber++
   
-   
   }
   mGuest(){
     if(this.guestNumber === 1){return}
@@ -45,11 +52,12 @@ export class RoomsListComponent implements OnInit {
   }
 
   revealText(){
-    var reveals = document.querySelectorAll(".reveal");
-      for (var i = 0; i < reveals.length; i++) {
+    const reveals = document.querySelectorAll(".reveal");
+      for (let i = 0; i < reveals.length; i++) {
           reveals[i].classList.add("active"); 
       }
     }
+  
     onSubmit(item: any){
       this.formSubmitted = true;
       item.promo === "happy"? this.reservation.promo = true : this.reservation.promo = false

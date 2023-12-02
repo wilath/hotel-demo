@@ -1,0 +1,76 @@
+
+.background{
+    width:100%;
+    min-height: 100vh;
+    background-image: url(../../../assets/images/background3.png);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: 'Poiret One', cursive;
+}
+.wrap{
+    position: relative;   
+    height: 100%;
+    width: calc(100% - 30vw);
+    background-color: var(--color-primary);
+    padding: 50px;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    border-bottom: 3px solid var(--color-third);
+    
+
+}
+.manage-bar{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.manage-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    width: 180px;
+    height: 30px;
+    font-family: 'Poiret One', cursive;
+    font-weight: 600;
+    font-size: calc(1.1rem + 0.2vw);
+    background-color: var(--button-color2);
+    
+}
+.manage-text{
+    color: var(--text-primary);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transition: color 0.5s ease;
+    
+}
+.manage-icon{
+    width: 180px;
+    height: 50px;
+    background-color: var(--button-color1) ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.test{
+    display: block;
+    width: fit-content;
+    text-decoration: none;
+}
+a.active-class2 .manage-button .manage-text {
+    color: var(--color-pink)
+}
+.router-wrap{
+    position: relative;   
+    height: 100%;
+    width: 100%;
+    background-color: var(--color-primary);
+}
+
