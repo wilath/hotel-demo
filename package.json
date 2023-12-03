@@ -1,6 +1,6 @@
 {
   "name": "hotel-demo",
-  "version": "0.0.0",
+  "version": "0.7.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -19,8 +19,8 @@
     "@angular/platform-browser-dynamic": "^17.0.5",
     "@angular/router": "^17.0.5",
     "@fullpage/angular-fullpage": "^0.0.16",
-    "@ngrx/effects": "^14.3.3",
-    "@ngrx/store": "^14.3.3",
+    "@ngrx/effects": "^17.0.1",
+    "@ngrx/store": "^17.0.1",
     "lord-icon-element": "^4.1.1",
     "lottie-web": "^5.12.2",
     "rxjs": "~7.5.0",
