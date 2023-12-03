@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, map, take } from 'rxjs';
 import { selectLogin } from '../store/selectors/login.selector';
@@ -8,7 +8,7 @@ import { AppState } from '../store/app.reducer';
 @Injectable({
   providedIn: 'root'
 })
-export class AccessGuard implements CanActivate {
+export class AccessGuard  {
 
   constructor(private router: Router,private store: Store<AppState>){
     
