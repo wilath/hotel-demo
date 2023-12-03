@@ -1,0 +1,21 @@
+<ng-container *ngIf="this.blogItem ; else errorBlock">
+    <div class="photos-list">
+      <img *ngFor="let photo of blogItem.photos" [src]="photo" alt="Blog Photo" class="photo-item" />
+    </div>
+  
+    
+    <div class="info">
+      <p>{{blogItem.postID}}</p>
+      <p>{{blogItem.author}}</p>
+      <p>{{blogItem.title}}</p>
+    </div>
+  
+   
+    <div class="content-list">
+      <p *ngFor="let paragraph of blogItem.content">{{paragraph}}</p>
+    </div>
+</ng-container>
+
+<ng-template #errorBlock>
+    <p>Load error</p>
+</ng-template>

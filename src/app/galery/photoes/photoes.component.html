@@ -1,16 +1,10 @@
 <div class="galery-wraper">
-
-
-    <h3>Our Posts</h3>
-<div class="slideshow"> 
-   <div *ngFor="let item of blogList$ | async">
-        {{item.postID}}
-        {{item.author}}
-        {{item.title}}
-    </div>
-    
-</div>
-
-
-
+  <div class="slideshow">
+    @for (item of blogList$ | async; track $index) {
+    <app-blog-item [blogItem]="item"></app-blog-item>
+    <hr />
+    } @empty {
+    <p>BlogList is empty</p>
+    }
+  </div>
 </div>

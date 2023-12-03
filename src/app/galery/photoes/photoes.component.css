@@ -21,3 +21,7 @@ h3{
     width: 100%;
     background: linear-gradient(0deg, rgba(0,0,0,0.6783088235294117) 0%, rgba(0,0,0,0) 78%);
 }
+.photo-item{
+    width: 250px;
+    aspect-ratio: 1/1;
+}

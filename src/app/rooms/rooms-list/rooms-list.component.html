@@ -1,61 +1,124 @@
 <div class="rooms-wraper">
-    <div class="rooms-work-area">
-        <div class="rooms-navbar form-control">
-        <form (ngSubmit)="onSubmit(reservationForm.value)" #reservationForm="ngForm">
-            <h2>Pick Your Room</h2>
-            <p><i class="fa-solid fa-caret-right"></i>  You are on the hotel website, we offer you the best prices because there are no intermediaries between you and us.</p>
-            <p><i class="fa-solid fa-caret-right"></i>  Due to our pursuit of the highest quality, our hotel does not accept children under 16 years of age</p>
-            <p><i class="fa-solid fa-caret-right"></i>  Omega hotel is celebrating its 15th birthday! Feel free to use 'happy' promo-code!</p>
-            <div  class="pick-wraper">
-                <div class="pick pick-date ">
-                    <i class="fa-solid fa-calendar"></i>
-                    <input  class="form-control" ngModel name="startDate" type="date" required #startDateInput>
-                </div>
-                <div class="pick pick-date ">
-                    <i class="fa-solid fa-calendar"></i>
-                    <input  ngModel class="form-control" name="endDate" type="date" required #endDateInput>
-                </div>
-                <div class="pick pick-guests ">
-                    <i class="fa-solid fa-person "></i>
-                    <input [(ngModel)]="guestNumber" type="number" class="form-control" ngModel name="guests" required readonly >
-                    <div class="add-up">
-                        <button (click)="pGuest()" class="pm" id="up">+</button>
-                        <button (click)="mGuest()" class="pm" id="down">-</button>
-                    </div>
-                    
-                </div>
-                <div class="pick pick-promo ">
-                    <i class="fa-thin fa-percent"></i>
-                    
-                    <input ngModel placeholder="Promo code" type="text" class="form-control" name="promo" >
-                </div>
-                <div class="pick pick-food ">
-                    <i class="fa-solid fa-utensils"></i>
-                
-                    <select ngModel  value="all" type="select" class="form-control" name="food" >
-                        <option value="all">All-inclusive</option>
-                        <option value="only">Only breakfasts</option>
-                        <option value="none">None</option>
-                    </select>
-                </div>
-                
-                    
-                
-                
+  <div class="rooms-work-area">
+    <div class="rooms-navbar form-control">
+      <form
+        (ngSubmit)="onSubmit(reservationForm.value)"
+        #reservationForm="ngForm"
+      >
+        <h2>Pick Your Room</h2>
+        <p>
+          <i class="fa-solid fa-caret-right"></i> You are on the hotel website,
+          we offer you the best prices because there are no intermediaries
+          between you and us.
+        </p>
+        <p>
+          <i class="fa-solid fa-caret-right"></i> Due to our pursuit of the
+          highest quality, our hotel does not accept children under 16 years of
+          age
+        </p>
+        <p>
+          <i class="fa-solid fa-caret-right"></i> Omega hotel is celebrating its
+          15th birthday! Feel free to use 'happy' promo-code!
+        </p>
+        <div class="pick-wraper">
+          <div class="pick pick-date">
+            <i class="fa-solid fa-calendar"></i>
+            <input
+              class="form-control"
+              ngModel
+              name="startDate"
+              type="date"
+              required
+              #startDateInput
+            />
+          </div>
+          <div class="pick pick-date">
+            <i class="fa-solid fa-calendar"></i>
+            <input
+              ngModel
+              class="form-control"
+              name="endDate"
+              type="date"
+              required
+              #endDateInput
+            />
+          </div>
+          <div class="pick pick-guests">
+            <i class="fa-solid fa-person"></i>
+            <input
+              [(ngModel)]="guestNumber"
+              type="number"
+              class="form-control"
+              ngModel
+              name="guests"
+              required
+              readonly
+            />
+            <div class="add-up">
+              <button type="button" (click)="pGuest()" class="pm" id="up">+</button>
+              <button type="button" (click)="mGuest()" class="pm" id="down">-</button>
             </div>
-            <div>
-                <div class="alert" *ngIf="endDateInput.value && startDateInput.value && endDateInput.value < startDateInput.value">
-                    The end date cannot be earlier than the start date.
-                  </div>
-            <button [disabled]="!reservationForm.form.valid || endDateInput.value < startDateInput.value" class=" apply-button" type="submit">Apply</button></div>
-        </form>
+          </div>
+          <div class="pick pick-promo">
+            <i class="fa-thin fa-percent"></i>
+
+            <input
+              ngModel
+              placeholder="Promo code"
+              type="text"
+              class="form-control"
+              name="promo"
+            />
+          </div>
+          <div class="pick pick-food">
+            <i class="fa-solid fa-utensils"></i>
+
+            <select
+              ngModel
+              value="all"
+              type="select"
+              class="form-control"
+              name="food"
+            >
+              <option value="all">All-inclusive</option>
+              <option value="only">Only breakfasts</option>
+              <option value="none">None</option>
+            </select>
+          </div>
         </div>
-        <div class="room-colection">
-            <ng-container  *ngFor="let item of rooms$ | async; let i=index" >
-            <app-room-item *ngIf="item | sortRooms: reservation.guests " [room]="item" [index]="i" >
-            
-            </app-room-item>
-        </ng-container>
+        <div>
+          <div
+            class="alert"
+            *ngIf="
+              endDateInput.value &&
+              startDateInput.value &&
+              endDateInput.value < startDateInput.value
+            "
+          >
+            The end date cannot be earlier than the start date.
+          </div>
+          <button
+            [disabled]="
+              !reservationForm.form.valid ||
+              endDateInput.value < startDateInput.value
+            "
+            class="apply-button"
+            type="submit"
+          >
+            Apply
+          </button>
         </div>
+      </form>
     </div>
+    <div class="room-colection">
+      <ng-container *ngFor="let item of rooms$ | async; let i = index">
+        <app-room-item
+          *ngIf="item | sortRooms : reservation.guests"
+          [room]="item"
+          [index]="i"
+        >
+        </app-room-item>
+      </ng-container>
+    </div>
+  </div>
 </div>

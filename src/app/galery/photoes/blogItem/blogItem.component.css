@@ -1,0 +1,7 @@
+:host {
+  display: block;
+}
+.photo-item{
+  width: 500px;
+  aspect-ratio: 1/1;
+}
