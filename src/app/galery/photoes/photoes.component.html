@@ -1,5 +1,5 @@
-<div class="galery-wraper">
-  <div class="slideshow">
+<div class="galery">
+  <div class="list-wraper">
     @for (item of blogList$ | async; track $index) {
     <app-blog-item [blogItem]="item"></app-blog-item>
     <hr />

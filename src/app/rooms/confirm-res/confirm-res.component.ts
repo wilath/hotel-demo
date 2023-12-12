@@ -3,7 +3,6 @@ import { Reservation } from '../../shared/reservation.model';
 import { RoomService } from '../room.service';
 import { Room } from '../../shared/room.model';
 
-
 @Component({
   selector: 'app-confirm-res',
   templateUrl: './confirm-res.component.html',
@@ -29,10 +28,10 @@ export class ConfirmResComponent implements OnInit {
   finalPrice: number = 0;
 
   ngOnInit() {
-    this.room = this.items.getSelectedRoom() //works
-  
+    this.room = this.items.getSelectedRoom(); //works
+
     this.res = this.items.getReseravtion(); //works
-    
+
     this.countAll();
     if (this.finalPrice !== 0) {
       this.local();

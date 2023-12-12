@@ -1,7 +1,44 @@
 :host {
   display: block;
+  border: 0px solid red;
+  margin: calc(50px - 1vw);
+  padding-top: 0;
 }
 .photo-item{
-  width: 500px;
+  width: 200px;
   aspect-ratio: 1/1;
+}
+.top-bar-info{
+  
+  
+}
+.inner-bar-info{
+  border: 2px  solid var(--color-pink);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 10px;
+  gap: 20px;
+}
+.top-bar-info>p{
+  display: block;
+  
+  margin-top:0;
+  padding: 10px
+}
+h1{
+  font-size: calc(4rem - 1vw);
+  color: var(--color-pink);
+  margin: 0;
+  padding-left: 10px;
+}
+.shares>i{
+  padding:5px;
+  font-size:25px
+}
+.shares>i:hover{
+  color: var(--color-pink);
+  cursor: pointer;
+  transition: color 0.3s ease;
 }

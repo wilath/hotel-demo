@@ -1,21 +1,50 @@
-<ng-container *ngIf="this.blogItem ; else errorBlock">
-    <div class="photos-list">
-      <img *ngFor="let photo of blogItem.photos" [src]="photo" alt="Blog Photo" class="photo-item" />
+<ng-container *ngIf="this.blogItem; else errorBlock">
+  <div class="top-bar-info">
+    <h1>{{ blogItem.title }}</h1>
+    <div class="inner-bar-info">
+      <div class="shares">
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-solid fa-share-nodes"></i>
+      </div>
+      <p>Author: {{ blogItem.author }}</p>
+      <p>LIKES {{ this.likes }}</p>
+      <p>SHARES {{ this.shares }}</p>
     </div>
-  
-    
-    <div class="info">
-      <p>{{blogItem.postID}}</p>
-      <p>{{blogItem.author}}</p>
-      <p>{{blogItem.title}}</p>
-    </div>
-  
+  </div>
+ 
+  <div class="container">
+    <div class="carousel">
+      <input *ngFor="let n of blogItem.photos; let i=index" type="radio" [id]="'carousel-' + i" name="carousel[]" [checked]="i===0">
+      
+      <ul class="carousel__items">
+        <li *ngFor="let photo of blogItem.photos" class="carousel__item"><img [src]="photo" alt=""></li>
+        
+      </ul>
+       <div class="carousel__prev">
+        <label *ngFor="let n of blogItem.photos; let i=index" [for]="'carousel-' + i"></label>
+       
    
-    <div class="content-list">
-      <p *ngFor="let paragraph of blogItem.content">{{paragraph}}</p>
-    </div>
+       </div>
+       <div class="carousel__next">
+          <label *ngFor="let n of blogItem.photos; let i=index" [for]="'carousel-' + i"></label>
+       
+ 
+       </div>
+       <div class="carousel__nav">
+         <label *ngFor="let n of blogItem.photos; let i=index" [for]="'carousel-' + i"></label>
+       </div>
+     </div>
+   </div>
+
+
+
+
+  <div class="content-list">
+    <p *ngFor="let paragraph of blogItem.content">{{ paragraph }}</p>
+  </div>
 </ng-container>
 
 <ng-template #errorBlock>
-    <p>Load error</p>
+  <p>Load error</p>
 </ng-template>

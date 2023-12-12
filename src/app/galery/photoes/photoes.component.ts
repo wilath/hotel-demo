@@ -13,9 +13,11 @@ import { selectAllBlogs } from 'src/app/store/selectors/blog-item.selector';
 export class PhotoesComponent implements OnInit {
   constructor(private store: Store<AppState>) {
     this.blogList$ = this.store.select(selectAllBlogs);
+    
   }
 
   blogList$: Observable<BlogPost[]>;
+
 
   ngOnInit(): void {}
 }
