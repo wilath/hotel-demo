@@ -17,7 +17,7 @@ const initialState: BlogState = {
       new Date(),
       [
         'https://blog.beactivetv.pl/wp-content/uploads/2019/07/sean-o-KMn4VEeEPR8-unsplash-1.jpg',
-        'https://images.pexels.com/photos/1938032/pexels-photo-1938032.jpeg',
+        'https://images.pexels.com/photos/237272/pexels-photo-237272.jpeg',
       ],
       [
         `Indulge in an unforgettable coastal escape at our exquisite hotel, where the allure of a breathtaking beach awaits just steps away. Picture yourself strolling along the shoreline, mesmerized by the stunning crystal-clear waters gently lapping at the shore. The warm embrace of the sun on your skin and the soothing sound of waves create a symphony of relaxation, making it an ideal spot to unwind and rejuvenate.`,

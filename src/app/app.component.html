@@ -1,6 +1,11 @@
+<ng-container *ngIf="isLoadingDone">
+  <app-navbar></app-navbar>
+  <app-login class="app-login"></app-login>
+  <div class="main">
+    <router-outlet></router-outlet>
+  </div>
+</ng-container>
 
-<app-navbar></app-navbar>
-<app-login class="app-login"></app-login>
-<div class="main">
-<router-outlet></router-outlet>
-</div>
+<ng-container *ngIf="!isLoadingDone"> 
+<app-main-loading ></app-main-loading>
+</ng-container>

@@ -9,6 +9,9 @@ import { EffectsModule } from '@ngrx/effects';
 import { LoginComponent } from './login/login.component';
 
 import * as fromApp from './store/app.reducer'
+import { MainLoadingComponent } from './loading-view/main-loading/main-loading.component';
+import { CarouselComponent } from './shared/carousel/carousel.component';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -18,9 +21,11 @@ import * as fromApp from './store/app.reducer'
     AppComponent,
     NavbarComponent,
     LoginComponent,
-
+    MainLoadingComponent,
+  
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot(fromApp.appReducer),
