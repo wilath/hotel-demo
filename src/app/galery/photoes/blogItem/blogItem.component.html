@@ -19,8 +19,10 @@
 
   <div class="content-list">
     <carousel [item]="blogItem.photos"></carousel>
+    <p class="paragraph" *ngFor="let para of blogItem.content">{{para}}</p>
   </div>
-  <p>Author: {{ blogItem.author }}</p>
+  <p>{{blogItem.author}} <span style="color: var(--color-pink)">-</span> {{blogItem.date | date:'shortDate'}}  </p>
+   
 </ng-container>
 
 <ng-template #errorBlock>
