@@ -28,23 +28,33 @@ const initialState: BlogState = {
     ),
     new BlogPost(
       1,
-      'Second Post',
+      'World of Sauna',
       'Anna',
       new Date(),
       [
         'https://homegarden.com.pl/media/cache/original/c2977f93f7937b51fb95d49c92272ff9086b39cd.jpeg',
       ],
-      ['dfsdfsdfdsfsgdf']
+      [
+        'Saunas have long been hailed as sanctuaries of relaxation and well-being. Originating from Finnish traditions, these heated rooms offer more than just a place to unwind. Stepping into a sauna, you enter a world where the soothing warmth not only melts away stress but also brings about a range of health benefits.',
+        'One of the key advantages of sauna sessions is the promotion of cardiovascular health. The heat stimulates blood circulation, causing blood vessels to dilate and improving overall cardiovascular function. This not only helps in reducing blood pressure but also enhances the efficiency of the heart, contributing to a healthier circulatory system.',
+        'Additionally, saunas are celebrated for their detoxifying properties. As you sweat in the heat, your body releases toxins, promoting a natural cleansing process. Regular sauna sessions can assist in purifying the skin, easing muscle tension, and even supporting the immune system. Embracing the heat in a sauna becomes more than a leisurely escape; it transforms into a holistic approach to well-being.',
+      ]
     ),
     new BlogPost(
       2,
-      'Third Post',
+      `Culinary Excellence Unveiled: Indulge in the Finest at Doe's Seafood & Steaks`,
       'Rob',
       new Date(),
       [
         'https://www.spoon-restaurant.com/wp-content/uploads/2022/06/Spoon_cLe_Bonbon-1-scaled.jpg',
+        'https://images.pexels.com/photos/1352264/pexels-photo-1352264.jpeg',
+        'https://images.pexels.com/photos/699544/pexels-photo-699544.jpeg'
       ],
-      ['dfsdfsdfdsfsgdf']
+      [
+        `Welcome to a gastronomic haven, where every dish tells a story of culinary mastery – Doe's Seafood & Steaks. Nestled within the confines of our world-renowned hotel, this culinary gem stands as a testament to unparalleled excellence. The ambiance is as exquisite as the cuisine, and our renowned chef, John Doe, is the maestro behind the culinary symphony that unfolds in our kitchen. Prepare your palate for an unforgettable journey through the depths of the ocean and the richness of premium steaks.`,
+        `Renowned for our dedication to seafood perfection, Doe's Seafood & Steaks offers a delightful array of ocean treasures. From succulent lobster tail to perfectly seared scallops, each seafood dish is a celebration of freshness and flavor. For those with a penchant for the finest cuts, our menu also boasts a selection of premium steaks, meticulously prepared to satisfy the most discerning steak aficionados. Chef John Doe's commitment to culinary excellence is palpable in every dish, making each visit a journey into the heart of fine dining.`,
+        `Immerse yourself in a dining experience that transcends the ordinary, where the artistry of Chef John Doe meets the sophistication of our hotel setting. Whether you're indulging in the delicate nuances of our seafood creations or savoring the richness of our premium steaks, each bite is a testament to our unwavering pursuit of culinary perfection. Doe's Seafood & Steaks is not just a restaurant; it's a culinary destination where the world's finest flavors come together to create an unforgettable dining experience.`
+      ]
     ),
   ],
   editedIngredient: null,

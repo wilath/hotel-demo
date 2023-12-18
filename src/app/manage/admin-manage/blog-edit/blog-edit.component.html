@@ -12,8 +12,8 @@
                 [routerLink]="[blog.postID]"
                 class="blog-item">
                 <div class="custom-filter"></div>
-                <img class="blog-image" [src]="blog.photos" alt="photo">
-            <h3>{{blog.title}}</h3>
+                <img class="blog-image" [src]="blog.photos[0]" alt="photo">
+            <h3>{{blog.title | shortenText:20}}</h3>
             
             </a>
         </div>

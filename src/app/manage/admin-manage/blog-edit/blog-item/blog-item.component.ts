@@ -92,7 +92,7 @@ export class BlogItemComponent implements OnInit {
     }
   }
 
-  getControls(type: string) {
+  public getControls(type: string) {
     if (type === 'content') {
       return this.registerForm.get('content') as FormArray;
     } else {

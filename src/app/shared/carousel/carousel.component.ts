@@ -73,11 +73,14 @@ import { Component, Input } from '@angular/core';
         opacity: 0;
         transition: all 0.1s ease;
       }
+      button:hover::after{
+        opacity: 0.5
+      }
       button:active{
         color: white;
       }
       button:active::after{
-        opacity: 0.5
+        opacity: 0.7
       }
       .photo{
         width: 100%;

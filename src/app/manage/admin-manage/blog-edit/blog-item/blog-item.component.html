@@ -1,54 +1,71 @@
-    <div  class="post-wrap"   >
-                  
-            <form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+<div class="post-wrap">
+  <form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <info-header>
+      <h3 *ngIf="!isNewPostMode; else isNew">
+        You are editing <span>{{ blogItem?.title }} </span>
+      </h3>
+      <ng-template #isNew>
+        <h3>You are creating new Post</h3>
+      </ng-template>
+    </info-header>
 
-                <info-header>
-                    <h2 *ngIf="!isNewPostMode; else isNewPostMode"> Editing <span>{{blogItem?.title}} </span> </h2>
-                    <ng-template #isNewPostMode>
-                        <h2>Creating new Post</h2>
-                    </ng-template>
-                    <div class="buttons">
-                        <button type="submit">{{!isNewPostMode ? 'Save Changes' : 'Add Post'}}</button>
-                        <button *ngIf="!isNewPostMode" (click)="deletePost()" type="button">Delete Post</button>
-                    </div>
-                </info-header>
+    <input-section>
+      <label class="label">Title:</label>
+      <input class="input" type="text" formControlName="title" />
+    </input-section>
 
-                <input-section>
-                    <label class="label">Title:</label>
-                    <input class="input" type="text" formControlName="title">
-                </input-section>
-                
-                <label style="display:none" class="label">Date</label>
-                <input style="display:none" type="date" formControlName="date">
-                
-                <input-section>
-                    <label class="label">Paragraphs:</label>
-                        <div class="in-content" formArrayName="content">
-                            
-                            <div class="paragraph-wrap" *ngFor="let control of getControls('content').controls; let i = index">                            
-                                <textarea   [formControl]="$any(control)"></textarea>
-                                <button type="button" class="remove-para" (click)="removeParagraph(i)">Remove</button>                          
-                            </div>
-                        </div>
-                        <button type="button" class="add-para" (click)="addElement('content')" >Add Paragraph</button>
-                </input-section>
-                       
-                
-                <input-section>
-                    <label class="label">Images:</label>
-                    <div class="in-content" formArrayName="photos">
-                        
-                        <div *ngFor="let control of getControls('photos').controls; let i = index">
-                            <input type="text" [formControl]="$any(control)">
-                            <img  style="width: 100px; aspect-ratio: 1/1;"[src]="control.value" alt="Photo">
-                            <button type="button" (click)="removePhoto(i)">Remove</button>
-                        </div>               
-                    </div>
-                    <button class="add-para" type="button" (click)="addElement('photo')">Add Photo</button>
-                </input-section>
+    <label style="display: none" class="label">Date</label>
+    <input style="display: none" type="date" formControlName="date" />
 
-                
-            </form>
-                       
+    <input-section>
+      <label class="label">Paragraphs:</label>
+      <div class="in-content" formArrayName="content">
+        <div
+          class="paragraph-wrap"
+          *ngFor="let control of getControls('content').controls; let i = index"
+        >
+          <textarea
+            [formControl]="$any(control)"
+            oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
+          ></textarea>
+          <button
+            type="button"
+            class="remove-para"
+            (click)="removeParagraph(i)"
+          >
+            Remove
+          </button>
+        </div>
+      </div>
+      <button type="button" class="add-para" (click)="addElement('content')">
+        Add Paragraph
+      </button>
+    </input-section>
+
+    <input-section>
+      <label class="label">Images:</label>
+      <div class="in-content" formArrayName="photos">
+        <div
+          class="paragraph-wrap"
+          *ngFor="let control of getControls('photos').controls; let i = index"
+        >
+          <input class="link-field" type="text" [formControl]="$any(control)" />
+
+          <button type="button" (click)="removePhoto(i)">Remove</button>
+        </div>
+      </div>
+      <button class="add-para" type="button" (click)="addElement('photo')">
+        Add Photo
+      </button>
+    </input-section>
+
+    <div class="buttons">
+      <button type="submit">
+        {{ !isNewPostMode ? "Save Changes" : "Add Post" }}
+      </button>
+      <button *ngIf="!isNewPostMode" (click)="deletePost()" type="button">
+        Delete Post
+      </button>
     </div>
-
+  </form>
+</div>

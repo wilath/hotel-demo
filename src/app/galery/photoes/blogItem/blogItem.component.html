@@ -2,19 +2,27 @@
   <div class="top-bar-info">
     <h1>{{ blogItem.title }}</h1>
 
-    <div class="likes-info">
-      <div style="cursor: pointer"  (click)="addLike()" class="likes">
-        
-        <i [ngStyle]="{'color': isLiked ? 'var(--color-pink)' : 'white'}" class="fa-solid fa-heart"></i>
-        <p>{{ this.likes }}</p>
-      </div>
-    </div>
+   
+      <div class="inner-spread">
+        <div class="likes-info">
+          <div style="cursor: pointer"  (click)="addLike()" class="likes">
+            
+            <i [ngStyle]="{'color': isLiked ? 'var(--color-pink)' : 'white'}" class="fa-solid fa-heart"></i>
+            <p>{{ this.likes }}</p>
+          </div>
+        </div>
+    
+        <div class="social">
+          <i class="logo fa-brands fa-facebook"></i>
+          <i class="logo fa-brands fa-twitter"></i>
+          <i class="logo fa-solid fa-share-nodes"></i>
+        </div>
 
-    <div class="social">
-      <i class="logo fa-brands fa-facebook"></i>
-      <i class="logo fa-brands fa-twitter"></i>
-      <i class="logo fa-solid fa-share-nodes"></i>
-    </div>
+      </div>
+
+   
+
+
   </div>
 
   <div class="content-list">

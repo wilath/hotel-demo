@@ -37,44 +37,20 @@ input-section{
 }
 info-header{
     position: relative;
-    border: 1px solid blue;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     width: 100%;
 }
-h2>span{
+h3{
+    color:var(--color-third);
+}
+h3>span{
     color: var(--color-pink);
-    padding: 0 1rem 0 1rem;
-    position: relative;
+
 }
-h2>span:after{
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    transform: rotate(45deg);
-    background-color: transparent;
-    border-bottom: 2px solid wheat;
-    border-left: 2px solid wheat;
-    top: calc(50% - 10px);
-    right: -20px;
-    animation: slidein 1.5s infinite;
-}
-h2>span:before{
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    transform: rotate(45deg);
-    background-color: transparent;
-    border-top: 2px solid wheat;
-    border-right: 2px solid wheat;
-    top: calc(50% - 10px);
-    left: -20px;
-    animation: slidein 1.5s infinite;
-}
+
 
 @keyframes slidein {
     0% {
@@ -108,10 +84,11 @@ button:disabled{
     cursor: auto;
 }
 .buttons{
-    position: absolute;
-    right: 0;
+    position: relative;
+
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    gap:5px;
 }
 .in-content{
     position: relative;
@@ -124,7 +101,6 @@ button:disabled{
 }
 textarea{
     position: relative;
-    min-height: 250px;
     width: 90%;
     word-break: break-word;
     border: none;
@@ -135,8 +111,9 @@ textarea{
     color: var(--color-primary);
     font-weight: 700;
     resize: none;
-    padding: 1rem;
-    margin-top: 1rem;
+    overflow: hidden;
+    min-height: fit-content;
+
 }
 input{
     position: relative;
@@ -149,13 +126,23 @@ input{
     width: calc(100% - 30px)
 }
 .remove-para{
-    position: absolute;
-    right: 0;
-    top: 0;
+   position: relative;
 }
 .paragraph-wrap{
     position: relative;
     background-color: var(--color-third);
     width: 100%;
     margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+}
+.link-field{
+    font-size: 1rem;
+    height: max-content;
+    padding: 0;
+}
+.photo-input{
+    display: flex;
+    flex-direction: row;
+    
 }

@@ -10,7 +10,7 @@
 }
 .top-bar-info {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
 }
@@ -32,7 +32,7 @@ h1 {
   justify-content: flex-start;
   align-items: center;
   border-radius: 5px;
-  margin-left: 10px;
+  
   overflow: hidden;
 }
 .likes-info {
@@ -114,4 +114,12 @@ carousel:before {
 }
 .paragraph{
   font-size: 1.7rem;
+  margin-top: 15px;
+}
+.inner-spread{
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
