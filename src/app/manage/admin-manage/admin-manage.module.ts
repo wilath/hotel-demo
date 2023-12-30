@@ -12,6 +12,8 @@ import { OccupancyComponent } from './occupancy/occupancy.component';
 import { BlogItemComponent } from './blog-edit/blog-item/blog-item.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ShortenTextPipe } from 'src/app/shared/short-text-pipe';
+import { RoomInfoComponent } from './room-list/room-info/room-info.component';
+import { ReservationsPipe } from 'src/app/shared/reseravtion-by-id.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { ShortenTextPipe } from 'src/app/shared/short-text-pipe';
     ReservationsComponent,
     OccupancyComponent,
     BlogItemComponent,
-    ShortenTextPipe
+    ShortenTextPipe,
+    RoomInfoComponent,
+    ReservationsPipe
   ],
   imports: [CommonModule, AdminManageRoutingModule, ReactiveFormsModule],
   providers: [],

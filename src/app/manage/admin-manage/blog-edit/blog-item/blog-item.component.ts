@@ -9,7 +9,7 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Observable, pipe, take } from 'rxjs';
+import { take } from 'rxjs';
 import { BlogPost } from 'src/app/shared/blogpost.model';
 import {
   addPost,
@@ -85,7 +85,7 @@ export class BlogItemComponent implements OnInit {
     if (this.isNewPostMode) {
       this.registerForm.reset({
         title: 'New Title',
-        content: ['Paragraph 1', 'Paragraph 2'], // Assuming 'content' is a FormArray
+        content: ['Paragraph 1', 'Paragraph 2'],
         photos: [],
         date: new Date(),
       });
@@ -100,21 +100,21 @@ export class BlogItemComponent implements OnInit {
     }
   }
 
-  addElement(type: string) {
+  public addElement(type: string) {
     const newElement = this.fb.control(null);
     this.getControls(type).push(newElement);
   }
 
-  removeParagraph(index: number) {
+  public removeParagraph(index: number) {
     const contentArray = this.registerForm.get('content') as FormArray;
     contentArray.removeAt(index);
   }
-  removePhoto(index: number) {
+  public removePhoto(index: number) {
     const photoArray = this.registerForm.get('photos') as FormArray;
     photoArray.removeAt(index);
   }
 
-  onSubmit(): void {
+  public onSubmit(): void {
     let newId: number = this.blogItem?.postID!;
     if (this.isNewPostMode) {
       this.store
@@ -140,7 +140,7 @@ export class BlogItemComponent implements OnInit {
       this.store.dispatch(editPost({ id: newId, post: newPost }));
     }
   }
-  deletePost() {
+  public deletePost() {
     this.store.dispatch(deletePost({ id: this.blogItem?.postID }));
   }
 }

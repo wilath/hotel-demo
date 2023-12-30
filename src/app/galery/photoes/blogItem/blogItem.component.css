@@ -123,3 +123,6 @@ carousel:before {
   flex-direction: row;
   justify-content: space-between;
 }
+.content-list{
+  margin-top: 5px;
+}

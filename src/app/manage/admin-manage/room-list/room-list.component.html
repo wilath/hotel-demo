@@ -1,1 +1,8 @@
-<p>room-list works!</p>
+<div class="room-list">
+  <!-- app.component.html -->
+
+  @for (item of rooms$ | async; track rooms$) {
+  <app-room-info [room]="item" [reservations]="reservations$ | async | reservationsById: item.id"> </app-room-info>
+
+  }
+</div>

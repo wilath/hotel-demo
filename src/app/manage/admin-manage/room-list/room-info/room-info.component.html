@@ -1,0 +1,27 @@
+<div class="room-card">
+  <div class="room-image">
+    <img [src]="room.imagePath" alt="{{ room.name }} Image" />
+  </div>
+  <div class="room-details">
+    <h2>{{ room.name }}</h2>
+    <p>CAP: {{ room.capacity }}</p>
+    <p>TAKEN: {{ room.taken }}</p>
+    <p>FREE: {{ room.capacity - room.taken }}</p>
+    <p>FACILITIES: {{ room.facilities.join(", ") }}</p>
+    <p>AREA: {{ room.area }} sq. ft.</p>
+    <p>PRICE: {{ room.price }}</p>
+    <p>QUANTITY: {{ room.quantity }}</p>
+  </div>
+  <div class="reservations-wrap" [ngClass]="{ 'add-show': isShowReservation }">
+    
+    <button (click)="this.isShowReservation = !this.isShowReservation">
+      {{ isShowReservation ? "Hide Reservations" : "Show Reservations" }}
+    </button>
+    @for (res of reservations; track reservations) {
+      <p>{{res.food}}</p>
+      <p>{{res.roomId}}</p>
+    } @empty {
+      <p>no reservations for this room</p>
+    }
+  </div>
+</div>
