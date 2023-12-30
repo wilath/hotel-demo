@@ -15,7 +15,7 @@
   position: relative;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   flex-grow: 1;
   transition: all 1s ease-out;
   overflow: hidden;
@@ -44,34 +44,49 @@
   font-size: 0.9em;
   color: white;
 }
-.reservations-wrap{
-    height: 50px;
-    flex-basis: 100%;
-    position: relative;
-    width: 100%;
-    left: 0;
-    bottom: 0;
-    -webkit-transition: all 0.5s  linear;
-    -moz-transition: all 0.5s  linear;
-    -o-transition: all 10.5s  linear;
-    transition: all 0.5s  linear;
-    
+.reservations-wrap {
+  max-height: 30px;
+  flex-basis: 100%;
+  position: relative;
+  border: 1px solid blue;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  -webkit-transition: max-height 0.5s linear;
+  -moz-transition: max-height 0.5s linear;
+  -o-transition: max-height 0.5s linear;
+  transition: max-height 0.5s linear;
 }
-.reservations-wrap button{
-    height: 50px;
-    width: 100%;
-    cursor: pointer;
-    position: relative;
-    bottom: 0;
-    left: 0;
+.reservations-wrap button {
+  height: 50px;
+  width: 100%;
+  cursor: pointer;
+  position: relative;
+ 
 }
-.add-show{
-  max-height: 185px;
-  height: 150px;
-
-  transition: all 0.5s linear;
-  -webkit-transition: all 0.5s  linear;
-  -moz-transition: all 0.5s  linear;
-  -o-transition: all 0.5s  linear;
-  transition: all 0.5s  linear;
+.add-show {
+  max-height: 600px;
+  transition: max-height 0.5s linear;
+  -webkit-transition: max-height 0.5s linear;
+  -moz-transition: max-height 0.5s linear;
+  -o-transition: max-height 0.5s linear;
+  transition: max-height 0.5s linear;
+}
+.res-wrap{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border: 1px solid red;
+  padding: 15px 0 15px 0;
+}
+.res-block{
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  border: 1px solid white;
 }

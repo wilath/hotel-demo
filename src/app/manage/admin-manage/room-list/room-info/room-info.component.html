@@ -13,15 +13,20 @@
     <p>QUANTITY: {{ room.quantity }}</p>
   </div>
   <div class="reservations-wrap" [ngClass]="{ 'add-show': isShowReservation }">
-    
     <button (click)="this.isShowReservation = !this.isShowReservation">
       {{ isShowReservation ? "Hide Reservations" : "Show Reservations" }}
     </button>
-    @for (res of reservations; track reservations) {
-      <p>{{res.food}}</p>
-      <p>{{res.roomId}}</p>
-    } @empty {
+    <div class="res-wrap">
+      @for (res of reservations; track reservations) {
+
+      <div class="res-block">
+        <p>{{ res.food }}</p>
+        <p>{{ res.roomId }}</p>
+      </div>
+
+      } @empty {
       <p>no reservations for this room</p>
-    }
+      }
+    </div>
   </div>
 </div>

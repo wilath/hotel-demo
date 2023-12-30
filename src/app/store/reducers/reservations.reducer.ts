@@ -9,7 +9,10 @@ export interface ReservationsState {
 
 const initialState: ReservationsState = {
     reservations: [
-    new Reservation(true, 2, new Date(), new Date(), 3, 'all', 3)
+    new Reservation(true, 2, new Date(), new Date(), 3, 'all', 1),
+    new Reservation(true, 2, new Date(), new Date(), 3, 'all', 1),
+    new Reservation(true, 2, new Date(), new Date(), 3, 'all', 1),
+    new Reservation(true, 2, new Date(), new Date(), 3, 'all', 1),
   ]
 } 
 
