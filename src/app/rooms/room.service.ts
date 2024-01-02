@@ -1,6 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Observable, Subject, filter, pipe, take } from 'rxjs';
-import { Reservation } from '../shared/reservation.model';
+import { GuestInfo, Reservation } from '../shared/reservation.model';
 import { Room } from '../shared/room.model';
 import { premiumFacs, standardFacs } from '../shared/facilities';
 import { Store } from '@ngrx/store';
@@ -21,6 +21,8 @@ export class RoomService implements OnInit {
     endDate: new Date(),
     days: 0,
     food: 'none',
+    roomId: 0,
+    finalPrice: 0,
   };
   reservation$ = new Subject<Reservation>();
   selectedRoom: Room | undefined;

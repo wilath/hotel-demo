@@ -24,6 +24,7 @@ export class RoomItemComponent implements OnInit {
     endDate: new Date(),
     days: 0,
     food: 'none',
+    finalPrice: 0,
   };
   totalPrice: number = 0;
 

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Reservation } from '../../shared/reservation.model';
 import { RoomService } from '../room.service';
 import { Room } from '../../shared/room.model';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/app.reducer';
+import { addReservation } from 'src/app/store/actions/resevations.actions';
 
 @Component({
   selector: 'app-confirm-res',
@@ -9,7 +12,8 @@ import { Room } from '../../shared/room.model';
   styleUrls: ['./confirm-res.component.css'],
 })
 export class ConfirmResComponent implements OnInit {
-  constructor(private items: RoomService) {}
+
+  constructor(private items: RoomService, private store: Store<AppState>) {}
 
   room: Room | undefined;
   res: Reservation = {
@@ -19,6 +23,7 @@ export class ConfirmResComponent implements OnInit {
     endDate: new Date(),
     days: 0,
     food: 'none',
+    finalPrice: 0,
   };
   catering: string = 'None';
   cateringCost: number = 0;
@@ -109,5 +114,12 @@ export class ConfirmResComponent implements OnInit {
     } else {
       throw 'Room undefined';
     }
+  }
+  sendReservation() {
+  
+    const newRes: Reservation = {...this.res, roomId:this.room?.id, guestInfo:{name: "John", surname: "Smith",title:"Sir",mail:"johnjohn@ex.com",phone:"423234324"},finalPrice: this.finalPrice}
+    this.store.dispatch(addReservation({reservation: newRes})); 
+    console.log("new res dispatched");
+    console.table(newRes)
   }
 }

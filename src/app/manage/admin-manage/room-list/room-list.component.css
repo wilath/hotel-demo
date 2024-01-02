@@ -10,7 +10,6 @@
 
 .room-card {
   border: 1px solid #ccc;
-  padding: 20px;
   margin: 10px;
   position: relative;
   display: flex;
@@ -19,16 +18,16 @@
   flex-grow: 1;
   transition: all 1s ease-out;
   overflow: hidden;
+  padding-bottom: 20px;
 }
 .room-image {
-  height: 100%;
+  max-height: 100%;
   flex: 1;
 }
 .room-image img {
   max-width: 100%;
   max-height: 100%;
   object-fit: cover;
-  border-radius: 8px;
 }
 
 .room-details {
@@ -48,7 +47,7 @@
   max-height: 30px;
   flex-basis: 100%;
   position: relative;
-  border: 1px solid blue;
+
   width: 100%;
   left: 0;
   bottom: 0;
@@ -57,12 +56,17 @@
   -o-transition: max-height 0.5s linear;
   transition: max-height 0.5s linear;
 }
-.reservations-wrap button {
+#drop-res {
+  font-family: inherit;
+  font-size: large;
+  color: white;
   height: 50px;
-  width: 100%;
+  background-color: var(--button-color2);
+  border: none;
+  width: calc(100% + 40px);
+  left: -20px;
   cursor: pointer;
   position: relative;
- 
 }
 .add-show {
   max-height: 600px;
@@ -72,21 +76,58 @@
   -o-transition: max-height 0.5s linear;
   transition: max-height 0.5s linear;
 }
-.res-wrap{
+.res-wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: white;
-  border: 1px solid red;
-  padding: 15px 0 15px 0;
+  padding-top: 15px;
 }
-.res-block{
+.res-block {
+  position: relative;
   flex-grow: 1;
-  width: 100%;
+  width: calc(100% - 40px);
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
-  border: 1px solid white;
+  justify-content: flex-start;
+  margin: 2px;
+  background-color: var(--color-secondary);
+  padding: 0px 50px 0px 10px;
+  height: auto;
+}
+.res-block p {
+  font-size: 1.2rem;
+  padding: 10px;
+  margin: 0;
+}
+.go-to-res {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  margin-left: auto;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+.go-to-res > button {
+  flex-grow: 1;
+  border: none;
+  width: 45px;
+  cursor: pointer;
+  background-color: var(--button-color2);
+  color: white;
+}
+.go-to-res > button > i {
+  font-size: 100%;
+}
+.go-to-res > button:hover {
+  background-color: var(--button-color1);
+  color: var(--color-pink)
 }

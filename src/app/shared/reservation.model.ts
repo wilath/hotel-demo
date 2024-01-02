@@ -5,8 +5,11 @@ export class Reservation {
   public endDate: Date;
   public days: number;
   public food: string;
-  public roomId: number;
+  public finalPrice: number;
+  public roomId?: number;
   public guestInfo?: GuestInfo;
+  public resId?: number;
+  
 
   constructor(
     promo: boolean,
@@ -15,8 +18,10 @@ export class Reservation {
     endDate: Date,
     days: number,
     food: string,
-    roomId: number,
+    finalPrice: number,
+    roomId?: number,
     guestInfo?: GuestInfo,
+    resId?: number,
 
   ) {
     this.promo = promo;
@@ -26,7 +31,9 @@ export class Reservation {
     this.days = days;
     this.food = food;
     this.roomId = roomId;
+    this.finalPrice = finalPrice;
     this.guestInfo = guestInfo;
+    this.resId = resId
   }
 }
 

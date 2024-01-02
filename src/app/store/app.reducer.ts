@@ -16,5 +16,5 @@ export const appReducer: ActionReducerMap<AppState> = {
   blog: fromBlogList.blogReducer,
   login: fromLogin.loginReducer,
   rooms: fromRooms.roomsReducer,
-  resevations: fromReseravtions.resevationsReducer
+  resevations: fromReseravtions.reservationsReducer
 };
