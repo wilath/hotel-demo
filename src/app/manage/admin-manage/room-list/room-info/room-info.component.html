@@ -4,13 +4,13 @@
   </div>
   <div class="room-details">
     <h2>{{ room.name }}</h2>
-    <p>CAP: {{ room.capacity }}</p>
-    <p>TAKEN: {{ room.taken }}</p>
-    <p>FREE: {{ room.capacity - room.taken }}</p>
-    <p>FACILITIES: {{ room.facilities.join(", ") }}</p>
-    <p>AREA: {{ room.area }} sq. ft.</p>
-    <p>PRICE: {{ room.price }}</p>
-    <p>QUANTITY: {{ room.quantity }}</p>
+    <p>Room capacity: {{ room.capacity }}</p>
+    <p>Total quantity: {{ room.quantity }}</p>
+    <p>Rooms taken: {{ room.taken }}</p>
+    <p>Rooms free: {{ room.quantity - room.taken }}</p>
+    <p>Avaliable facilities: {{ room.facilities.join(", ") }}</p>
+    <p>Rooms area: {{ room.area }}   <span style="color: var(--color-pink)">sq. mt.</span></p>
+    <p>Rooms price: {{ room.price }} <span style="color: var(--color-pink)">$</span></p>
   </div>
   <div class="reservations-wrap" [ngClass]="{ 'add-show': isShowReservation }">
     <button  id="drop-res"(click)="this.isShowReservation = !this.isShowReservation">

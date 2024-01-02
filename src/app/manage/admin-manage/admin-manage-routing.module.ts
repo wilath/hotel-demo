@@ -25,6 +25,11 @@ const routes: Routes = [
           {
             path: 'new',
             component: BlogItemComponent
+          },
+          {
+            path: '',
+            redirectTo: 'admin-panel//blog-edit/new',
+            pathMatch: 'full'
           }
         ]},
       { 
