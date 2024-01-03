@@ -1,34 +1,63 @@
 <div class="room-card">
-  <div class="room-image">
-    <img [src]="room.imagePath" alt="{{ room.name }} Image" />
+  <h2>{{ room.name }}</h2>
+  <div class="room-info">
+    <div class="room-details">
+      <p>Room capacity: {{ room.capacity }}</p>
+      <p>Total quantity: {{ room.quantity }}</p>
+      <p>Avaliable facilities: {{ room.facilities.join(", ") }}</p>
+      <p>
+        Rooms area: {{ room.area }}
+        <span style="color: var(--color-pink)">sq. mt.</span>
+      </p>
+      <p>
+        Rooms price: {{ room.price }}
+        <span style="color: var(--color-pink)">$</span>
+      </p>
+    </div>
+    <div class="room-image">
+      <img [src]="room.imagePath" alt="{{ room.name }} Image" />
+    </div>
   </div>
-  <div class="room-details">
-    <h2>{{ room.name }}</h2>
-    <p>Room capacity: {{ room.capacity }}</p>
-    <p>Total quantity: {{ room.quantity }}</p>
-    <p>Rooms taken: {{ room.taken }}</p>
-    <p>Rooms free: {{ room.quantity - room.taken }}</p>
-    <p>Avaliable facilities: {{ room.facilities.join(", ") }}</p>
-    <p>Rooms area: {{ room.area }}   <span style="color: var(--color-pink)">sq. mt.</span></p>
-    <p>Rooms price: {{ room.price }} <span style="color: var(--color-pink)">$</span></p>
-  </div>
+
   <div class="reservations-wrap" [ngClass]="{ 'add-show': isShowReservation }">
-    <button  id="drop-res"(click)="this.isShowReservation = !this.isShowReservation">
+    <button
+      id="drop-res"
+      (click)="this.isShowReservation = !this.isShowReservation"
+    >
       {{ isShowReservation ? "Hide Reservations" : "Show Reservations" }}
     </button>
     <div class="res-wrap">
       @for (res of reservations; track reservations) {
 
       <div class="res-block">
-        <p>{{res.startDate | date: 'shortDate'}} <i class="fa-solid fa-arrow-right"></i> {{res.endDate | date: 'shortDate'}} <span style="color:var(--color-pink); font-weight: bold;">  <i class="fa-solid fa-moon"></i> {{res.days}}</span></p>
-        <p>{{res.guestInfo?.title + ' ' + res.guestInfo?.name  + ' ' +  res.guestInfo?.surname}} <span style="color:var(--color-pink);"  *ngIf="res.guests > 1"> & {{ res.guests - 1}} {{res.guests > 2 ? "guests" : "guest"}} </span></p>
-        <p>{{res.finalPrice}} <span style="color: var(--color-pink)">$</span></p>
+        <p>
+          {{ res.startDate | date : "shortDate" }}
+          <i class="fa-solid fa-arrow-right"></i>
+          {{ res.endDate | date : "shortDate" }}
+          <span style="color: var(--color-pink); font-weight: bold">
+            <i class="fa-solid fa-moon"></i> {{ res.days }}</span
+          >
+        </p>
+        <p>
+          {{
+            res.guestInfo?.title +
+              " " +
+              res.guestInfo?.name +
+              " " +
+              res.guestInfo?.surname
+          }}
+          <span style="color: var(--color-pink)" *ngIf="res.guests > 1">
+            & {{ res.guests - 1 }} {{ res.guests > 2 ? "guests" : "guest" }}
+          </span>
+        </p>
+        <p>
+          {{ res.finalPrice }} <span style="color: var(--color-pink)">$</span>
+        </p>
         <div class="go-to-res">
           <button><i class="fa-solid fa-arrow-right-to-bracket"></i></button>
-
         </div>
       </div>
-       
+
       } @empty {
       <p>no reservations for this room</p>
       }
