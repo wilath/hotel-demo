@@ -1,86 +1,81 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poiret+One&display=swap");
 
+:root {
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  --text-primary: rgb(204, 203, 203);
+  --text-secondary: rgb(22, 19, 36);
+  --color-primary: rgb(38, 44, 56);
+  --color-secondary: rgb(29, 33, 41);
+  --color-third: rgb(109, 122, 150);
+  --color-pink: rgb(240, 95, 95);
 
-:root{
-    font-family: 'Raleway', sans-serif;
-    font-size: 16px;
-    --text-primary: rgb(204, 203, 203);
-    --text-secondary: rgb(22, 19, 36);
-    --color-primary: rgb(38, 44, 56);
-    --color-secondary: rgb(29, 33, 41);
-    --color-third: rgb(109, 122, 150);;
-    --color-pink:rgb(240, 95, 95);
-
-    --button-color1: rgb(104, 115, 139);;
-    --button-color2: rgb(56, 62, 75);;
+  --button-color1: rgb(104, 115, 139);
+  --button-color2: rgb(56, 62, 75);
 }
-body{
-    margin: 0;
-    padding: 0;
-    font-family: 'Raleway', sans-serif;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Raleway", sans-serif;
 }
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+  width: 0.35rem;
+}
+body::-webkit-scrollbar-track {
+  background-color: rgb(153, 153, 153);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--color-pink);
+}
+
+.reveal {
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: 2s all ease;
+}
+.reveal.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+@media only screen and (min-width: 600px) {
+  .main {
+    margin-left: 5rem;
   }
-
-body::-webkit-scrollbar{
-    width: 0.35rem;
 }
-body::-webkit-scrollbar-track{
-    background-color: rgb(153, 153, 153);
-}
-body::-webkit-scrollbar-thumb{
-    background-color: var(--color-pink);
-}
-
-.reveal{
-    position: relative;
-    transform: translateY(150px);
-    opacity: 0;
-    transition: 2s all ease;
+@media only screen and (max-width: 600px) {
+  .main {
+    margin-bottom: 5rem;
   }
-.reveal.active{
-    transform: translateY(0);
-    opacity: 1;
-  }
-
-
-
-@media only screen and  (min-width: 600px){
-    .main{
-        margin-left: 5rem;
-        
-    }
-}
-@media only screen and  (max-width: 600px){
-    .main{
-        margin-bottom: 5rem;
-        
-    }
 }
 
 .fade-animation {
-    opacity: 0;
-    transition: opacity 0.3s;
+  opacity: 0;
+  transition: opacity 0.3s;
 }
-  
+
 .fade-animation.ng-enter,
 .fade-animation.ng-leave {
-    opacity: 1;
+  opacity: 1;
 }
-  
+
 .fade-animation.ng-enter.ng-enter-active,
 .fade-animation.ng-leave {
-    opacity: 0;
+  opacity: 0;
 }
 
 .prevent-select {
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
-.disable-scroll{
-    overflow: hidden
+.disable-scroll {
+  overflow: hidden;
 }

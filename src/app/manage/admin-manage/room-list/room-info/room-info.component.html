@@ -1,31 +1,134 @@
 <div class="room-card">
   <h2>{{ room.name }}</h2>
-  <div class="room-info">
-    <div class="room-details">
-      <p>Room capacity: {{ room.capacity }}</p>
-      <p>Total quantity: {{ room.quantity }}</p>
-      <p>Avaliable facilities: {{ room.facilities.join(", ") }}</p>
+  @if (!this.isEditMode) {
+  <button (click)="this.isEditMode = !this.isEditMode" class="go-edit">
+    <i class="fa-solid fa-pen-to-square"></i>
+  </button>
+  } @else {
+  <button
+    type="button"
+    (click)="this.isEditMode = !this.isEditMode"
+    class="go-edit"
+  >
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+  <button type="submit" class="go-edit edit2" (click)="onSubmit()">
+    <i class="fa-solid fa-floppy-disk"></i>
+  </button>
+  } @if(!this.isEditMode) {
+  <div class="room-details">
+    <div class="flex-item">
+      <div class="flex-title">Room Info</div>
       <p>
-        Rooms area: {{ room.area }}
-        <span style="color: var(--color-pink)">sq. mt.</span>
+        Room capacity: <span class="wheat">{{ room.capacity }}</span>
       </p>
       <p>
-        Rooms price: {{ room.price }}
-        <span style="color: var(--color-pink)">$</span>
+        Total quantity: <span class="wheat">{{ room.quantity }}</span>
+      </p>
+      <p>Avaliable facilities:</p>
+      <ul>
+        <li *ngFor="let item of room.facilities">
+          {{ item }}
+        </li>
+      </ul>
+      <p>
+        Rooms area:
+        <span class="wheat"> {{ room.area }}</span>
+        sq. mt.
+      </p>
+      <p>
+        Rooms price:
+        <span class="wheat">{{ room.price }}</span> $
       </p>
     </div>
-    <div class="room-image">
-      <img [src]="room.imagePath" alt="{{ room.name }} Image" />
+    <div class="flex-item">
+      <div class="flex-title">Room Photos</div>
+      <div class="res-wrap">
+        @for (photo of room.imagePath; track $index; ) {
+
+        <div class="photo-block">
+          <p>Photo {{ $index + 1 }}</p>
+          <img [src]="photo" alt="room-photo" />
+        </div>
+
+        } @empty {
+        <p>No photos of this room</p>
+        }
+      </div>
     </div>
   </div>
+  } @else {
+  <!-- EDIT FORM -->
+  <form [formGroup]="editRoom" (ngSubmit)="onSubmit()">
+    <div class="room-details">
+      <div class="flex-item1">
+        <div class="flex-title">Room Info</div>
+        <p>Room capacity: <input type="text" formControlName="cap" /></p>
+        <p>Total quantity: <input type="text" formControlName="quantity" /></p>
+        <p>Avaliable facilities:</p>
+        <ul formArrayName="facs">
+          <li
+            class="form-li"
+            *ngFor="let control of getControls('facs').controls; let i = index"
+          >
+            <input
+              class="facs-input"
+              spellcheck="false"
+              type="text"
+              [formControl]="$any(control)"
+            />
+            <button class="remove-fac" (click)="removeElement(i, 'facs')">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </li>
+          <li class="form-li">
+            <button
+              (click)="addElement('facs')"
+              type="button"
+              class="remove-fac"
+            >
+              <i class="fa-solid fa-plus"></i>
+            </button>
+          </li>
+        </ul>
+        <p>
+          Rooms area:
+          <input type="text" formControlName="area" />
+          sq. mt.
+        </p>
+        <p>
+          Rooms price:
+          <input type="text" formControlName="price" /> $
+        </p>
+      </div>
+      <div class="flex-item">
+        <div class="flex-title">Room Photos</div>
+        <div class="res-wrap">
+          @for (photo of room.imagePath; track $index; ) {
 
-  <div class="reservations-wrap" [ngClass]="{ 'add-show': isShowReservation }">
-    <button
-      id="drop-res"
-      (click)="this.isShowReservation = !this.isShowReservation"
-    >
-      {{ isShowReservation ? "Hide Reservations" : "Show Reservations" }}
-    </button>
+          <div class="photo-block">
+            <p>Photo {{ $index + 1 }}</p>
+            <img [src]="photo" alt="room-photo" />
+          </div>
+
+          } @empty {
+          <p>No photos of this room</p>
+          }
+        </div>
+      </div>
+    </div>
+  </form>
+
+  }
+
+  <button
+    type="button"
+    class="drop-button"
+    (click)="this.isShowReservation = !this.isShowReservation"
+  >
+    {{ isShowReservation ? "Hide Reservations" : "Show Reservations" }}
+  </button>
+  <div class="pop-up" [ngClass]="{ 'add-show': isShowReservation }">
     <div class="res-wrap">
       @for (res of reservations; track reservations) {
 
@@ -54,7 +157,9 @@
           {{ res.finalPrice }} <span style="color: var(--color-pink)">$</span>
         </p>
         <div class="go-to-res">
-          <button><i class="fa-solid fa-arrow-right-to-bracket"></i></button>
+          <button type="button">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i>
+          </button>
         </div>
       </div>
 

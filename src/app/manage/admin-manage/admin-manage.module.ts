@@ -14,6 +14,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ShortenTextPipe } from 'src/app/shared/short-text-pipe';
 import { RoomInfoComponent } from './room-list/room-info/room-info.component';
 import { ReservationsPipe } from 'src/app/shared/reseravtion-by-id.pipe';
+import { ShowHideDirective } from 'src/app/shared/show-hide.directive';
+
 
 @NgModule({
   declarations: [
@@ -25,12 +27,16 @@ import { ReservationsPipe } from 'src/app/shared/reseravtion-by-id.pipe';
     BlogItemComponent,
     ShortenTextPipe,
     RoomInfoComponent,
-    ReservationsPipe
+    ReservationsPipe,
+    ShowHideDirective
+  
+    
   ],
-  imports: [CommonModule, AdminManageRoutingModule, ReactiveFormsModule],
+  imports: [CommonModule, AdminManageRoutingModule, ReactiveFormsModule, ],
   providers: [],
   bootstrap: [AdminManageComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  exports: [ShowHideDirective]
 })
 export class AdminManageModule {
   constructor() {

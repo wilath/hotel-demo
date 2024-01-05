@@ -8,13 +8,10 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { LoginComponent } from './login/login.component';
 
-import * as fromApp from './store/app.reducer'
+import * as fromApp from './store/app.reducer';
 import { MainLoadingComponent } from './loading-view/main-loading/main-loading.component';
 import { CommonModule } from '@angular/common';
-
-
-
-
+import { ShowHideDirective } from './shared/show-hide.directive';
 
 @NgModule({
   declarations: [
@@ -22,16 +19,15 @@ import { CommonModule } from '@angular/common';
     NavbarComponent,
     LoginComponent,
     MainLoadingComponent,
-    
   ],
   imports: [
     CommonModule,
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot(fromApp.appReducer),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([]),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
