@@ -10,7 +10,7 @@ import {
 import { ActivatedRoute, Params } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { take } from 'rxjs';
-import { BlogPost } from 'src/app/shared/blogpost.model';
+import { BlogPost } from 'src/app/shared/models/blogpost.model';
 import {
   addPost,
   deletePost,

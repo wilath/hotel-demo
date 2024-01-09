@@ -1,8 +1,8 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Observable, Subject, filter, pipe, take } from 'rxjs';
-import { GuestInfo, Reservation } from '../shared/reservation.model';
-import { Room } from '../shared/room.model';
-import { premiumFacs, standardFacs } from '../shared/facilities';
+import { GuestInfo, Reservation } from '../shared/models/reservation.model';
+import { Room } from '../shared/models/room.model';
+import { premiumFacs, standardFacs } from '../shared/models/facilities';
 import { Store } from '@ngrx/store';
 import { roomsReducer } from '../store/reducers/rooms.reducer';
 import { AppState } from '../store/app.reducer';

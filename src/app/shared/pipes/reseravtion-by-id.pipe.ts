@@ -1,7 +1,7 @@
 // room-reservations.pipe.ts
 
 import { Pipe, PipeTransform } from '@angular/core';
-import { Reservation } from './reservation.model';
+import { Reservation } from '../models/reservation.model';
 
 @Pipe({
   name: 'reservationsById'

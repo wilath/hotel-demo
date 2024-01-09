@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Reservation } from '../../shared/reservation.model';
+import { Reservation } from '../../shared/models/reservation.model';
 import { RoomService } from '../room.service';
-import { Room } from '../../shared/room.model';
+import { Room } from '../../shared/models/room.model';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.reducer';
 import { addReservation } from 'src/app/store/actions/resevations.actions';

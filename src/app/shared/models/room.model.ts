@@ -7,10 +7,10 @@ export class Room{
     public area: number;
     public price: number;
     public quantity: number;
-    public taken: number;
+    public taken?: number;
 
     
-    constructor(id:number, name:string, capacity:number,facilities:Array<string>, imagePath: Array<string>, area:number, price:number, quantity: number, taken: number){
+    constructor(id:number, name:string, capacity:number,facilities:Array<string>, imagePath: Array<string>, area:number, price:number, quantity: number, taken?: number){
         this.id = id
         this.name = name;
         this.capacity = capacity

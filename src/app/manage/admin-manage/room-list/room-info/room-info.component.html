@@ -1,15 +1,11 @@
 <div class="room-card">
   <h2>{{ room.name }}</h2>
   @if (!this.isEditMode) {
-  <button (click)="this.isEditMode = !this.isEditMode" class="go-edit">
+  <button (click)="switchEditMode()" class="go-edit">
     <i class="fa-solid fa-pen-to-square"></i>
   </button>
   } @else {
-  <button
-    type="button"
-    (click)="this.isEditMode = !this.isEditMode"
-    class="go-edit"
-  >
+  <button type="button" (click)="switchEditMode()" class="go-edit">
     <i class="fa-solid fa-xmark"></i>
   </button>
   <button type="submit" class="go-edit edit2" (click)="onSubmit()">
@@ -63,8 +59,36 @@
     <div class="room-details">
       <div class="flex-item1">
         <div class="flex-title">Room Info</div>
-        <p>Room capacity: <input type="text" formControlName="cap" /></p>
-        <p>Total quantity: <input type="text" formControlName="quantity" /></p>
+        <p>
+          Room name:
+          <input
+            disableEnter
+            size="15"
+            maxlength="15"
+            type="text"
+            formControlName="name"
+          />
+        </p>
+        <p>
+          Room capacity:
+          <input
+            disableEnter
+            size="2"
+            maxlength="2"
+            type="text"
+            formControlName="cap"
+          />
+        </p>
+        <p>
+          Total quantity:
+          <input
+            disableEnter
+            size="2"
+            maxlength="2"
+            type="text"
+            formControlName="quantity"
+          />
+        </p>
         <p>Avaliable facilities:</p>
         <ul formArrayName="facs">
           <li
@@ -72,7 +96,9 @@
             *ngFor="let control of getControls('facs').controls; let i = index"
           >
             <input
+              disableEnter
               class="facs-input"
+              maxlength="15"
               spellcheck="false"
               type="text"
               [formControl]="$any(control)"
@@ -93,27 +119,49 @@
         </ul>
         <p>
           Rooms area:
-          <input type="text" formControlName="area" />
+          <input disableEnter size="2" type="text" formControlName="area" />
           sq. mt.
         </p>
         <p>
           Rooms price:
-          <input type="text" formControlName="price" /> $
+          <input disableEnter size="3" type="text" formControlName="price" /> $
         </p>
       </div>
       <div class="flex-item">
         <div class="flex-title">Room Photos</div>
-        <div class="res-wrap">
-          @for (photo of room.imagePath; track $index; ) {
+        <div formArrayName="photos" class="res-wrap">
+          @for (photo of getControls('photos').controls; track $index; ) {
 
           <div class="photo-block">
             <p>Photo {{ $index + 1 }}</p>
-            <img [src]="photo" alt="room-photo" />
+            <img *ngIf="photo.value" [src]="photo.value" alt="room-photo" />
+            <input
+              style="flex-grow: 1"
+              disableEnter
+              [formControl]="$any(photo)"
+              type="text"
+            />
+            <button
+              class="remove-photo"
+              type="button"
+              (click)="removeElement($index, 'photos')"
+            >
+              <i class="fa-solid fa-xmark"></i>
+            </button>
           </div>
 
           } @empty {
           <p>No photos of this room</p>
           }
+          <div class="photo-block">
+            <button
+              type="button"
+              class="add-photo-button"
+              (click)="addElement('photo')"
+            >
+              <i class="fa-solid fa-plus"></i>
+            </button>
+          </div>
         </div>
       </div>
     </div>

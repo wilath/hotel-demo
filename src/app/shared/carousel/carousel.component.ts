@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -20,7 +19,7 @@ import { Component, Input } from '@angular/core';
   styles: `.carousel {
         position: relative;
         overflow: hidden;
-        max-width: 700px; /* Dostosuj szerokość karuzeli według potrzeb */
+        max-width: 700px; 
         height: auto;
         margin: auto;
       
@@ -88,8 +87,6 @@ import { Component, Input } from '@angular/core';
         object-fit: fill;
       
       }`,
-  standalone: true,
-  imports: [CommonModule],
 })
 export class CarouselComponent {
   @Input() item: string[] = [];

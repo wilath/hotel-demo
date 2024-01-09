@@ -11,7 +11,7 @@ import { LoginComponent } from './login/login.component';
 import * as fromApp from './store/app.reducer';
 import { MainLoadingComponent } from './loading-view/main-loading/main-loading.component';
 import { CommonModule } from '@angular/common';
-import { ShowHideDirective } from './shared/show-hide.directive';
+import { ShowHideDirective } from './shared/directives/show-hide.directive';
 
 @NgModule({
   declarations: [

@@ -1,5 +1,5 @@
 import { createSelector } from "@ngrx/store"
-import { BlogPost } from "src/app/shared/blogpost.model"
+import { BlogPost } from "src/app/shared/models/blogpost.model"
 import { AppState } from "../app.reducer";
 import { BlogState } from "../reducers/blog.reducer";
 

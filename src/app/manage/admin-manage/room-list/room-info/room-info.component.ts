@@ -8,6 +8,7 @@ import {
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Reservation, Room } from 'src/app/shared';
+import { editRoom } from 'src/app/store/actions/rooms.actions';
 import { AppState } from 'src/app/store/app.reducer';
 
 @Component({
@@ -29,7 +30,17 @@ export class RoomInfoComponent implements OnInit {
   ngOnInit(): void {
     this.initializeForm();
   }
+ 
+  public switchEditMode(){
+    if(this.isEditMode) { 
+      this.isEditMode = !this.isEditMode
+      this.initializeForm()
+      
+    } else {
+      this.isEditMode = !this.isEditMode
+    }
 
+  }
   public initializeForm() {
     let name = '';
     let quantity = 0;
@@ -81,5 +92,19 @@ export class RoomInfoComponent implements OnInit {
   }
   public deleteRoom() {}
 
-  public onSubmit() {}
+  public onSubmit() {
+    const newRoom : Room =  {
+      id: this.room.id,
+      name: this.editRoom.value.name,
+      capacity: this.editRoom.value.cap,
+      facilities: this.editRoom.value.facs,
+      imagePath: this.editRoom.value.photos,
+      area: this.editRoom.value.area,
+      quantity: this.editRoom.value.quantity,
+      price: parseInt(this.editRoom.value.price,10)
+    }
+
+    this.store.dispatch(editRoom({id: this.room.id, room: newRoom}))
+    this.isEditMode = !this.isEditMode
+  }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { BlogPost } from 'src/app/shared/blogpost.model';
+import { BlogPost } from 'src/app/shared/models/blogpost.model';
 import { AppState } from 'src/app/store/app.reducer';
 import { selectAllBlogs } from 'src/app/store/selectors/blog-item.selector';
 

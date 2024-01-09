@@ -1,6 +1,6 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { Reservation } from '../../../shared/reservation.model';
-import { Room } from '../../../shared/room.model';
+import { Reservation } from '../../../shared/models/reservation.model';
+import { Room } from '../../../shared/models/room.model';
 import { RoomService } from '../../room.service';
 
 @Component({

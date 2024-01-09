@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { BlogPost } from 'src/app/shared/blogpost.model';
+import { BlogPost } from 'src/app/shared/models/blogpost.model';
 import * as BlogActions from '../actions/blog.actions';
 
 export interface BlogState {

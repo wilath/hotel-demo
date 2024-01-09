@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Room } from '../../shared/room.model';
+import { Room } from '../../shared/models/room.model';
 import { RoomService } from '../room.service';
 import { sortRoomPipe } from '../sort-rooms.pipe';
 import { Store } from '@ngrx/store';

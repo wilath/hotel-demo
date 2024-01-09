@@ -11,11 +11,12 @@ import { ReservationsComponent } from './reservations/reservations.component';
 import { OccupancyComponent } from './occupancy/occupancy.component';
 import { BlogItemComponent } from './blog-edit/blog-item/blog-item.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ShortenTextPipe } from 'src/app/shared/short-text-pipe';
+import { ShortenTextPipe } from 'src/app/shared/pipes/short-text-pipe';
 import { RoomInfoComponent } from './room-list/room-info/room-info.component';
-import { ReservationsPipe } from 'src/app/shared/reseravtion-by-id.pipe';
-import { ShowHideDirective } from 'src/app/shared/show-hide.directive';
-
+import { ReservationsPipe } from 'src/app/shared/pipes/reseravtion-by-id.pipe';
+import { ShowHideDirective } from 'src/app/shared/directives/show-hide.directive';
+import { DisableEnterDirective } from 'src/app/shared/directives/disable-enter-on-input.directive';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -25,18 +26,18 @@ import { ShowHideDirective } from 'src/app/shared/show-hide.directive';
     ReservationsComponent,
     OccupancyComponent,
     BlogItemComponent,
-    ShortenTextPipe,
-    RoomInfoComponent,
-    ReservationsPipe,
-    ShowHideDirective
-  
-    
+    RoomInfoComponent, 
   ],
-  imports: [CommonModule, AdminManageRoutingModule, ReactiveFormsModule, ],
+  imports: [
+    CommonModule,
+    AdminManageRoutingModule,
+    ReactiveFormsModule,
+    SharedModule
+  ],
   providers: [],
   bootstrap: [AdminManageComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  exports: [ShowHideDirective]
+  exports: [],
 })
 export class AdminManageModule {
   constructor() {

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PhotoesComponent } from './photoes/photoes.component';
 import { GaleryRoutingModule } from './galery.routing.module';
 import { BlogItemComponent } from './photoes/blogItem/blogItem.component';
-import { CarouselComponent } from '../shared/carousel/carousel.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -13,10 +13,9 @@ import { CarouselComponent } from '../shared/carousel/carousel.component';
     BlogItemComponent
   ],
   imports: [
-    CommonModule,
     GaleryRoutingModule,
-    CarouselComponent
-    
+    SharedModule
+
   ]
 })
 export class GaleryModule { }
